@@ -1184,14 +1184,14 @@ class Game:
             pygame.draw.rect(self.screen, STEEL_BLUE, table_header_rect)
             pygame.draw.rect(self.screen, NEON_BLUE, table_header_rect, 2)
             
-            col_widths = [80, 200, 150, 100, 100, 120]
+            col_widths = [80, 200, 150, 120]
             col_x_positions = []
             current_x = panel_x + 60
             for width in col_widths:
                 col_x_positions.append(current_x)
                 current_x += width
             
-            headers = ["RANK", "GAMER", "SCORE", "TIME", "SPEED", "DATE"]
+            headers = ["RANK", "GAMER", "SCORE", "DATE"]
             for i, header in enumerate(headers):
                 header_surface = self.font.render(header, True, WHITE)
                 self.screen.blit(header_surface, (col_x_positions[i], table_start_y + 10))
@@ -1267,11 +1267,9 @@ class Game:
                 rank_text = f"#{i+1}"
                 gamer_text = score_entry['player'][:15]
                 score_text = f"{score_entry['score']:,}"
-                time_text = f"{score_entry['survival_time']}s"
-                speed_text = f"{score_entry['max_speed']:.1f}x"
                 date_text = score_entry['date'][:10]  # Show only date part
                 
-                row_data = [rank_text, gamer_text, score_text, time_text, speed_text, date_text]
+                row_data = [rank_text, gamer_text, score_text, date_text]
                 
                 for j, data in enumerate(row_data):
                     if j < len(col_x_positions):
