@@ -1,2 +1,2 @@
--pip install pygame opencv-python mediapipe numpy
+-pip install pygame opencv-python mediapipe 
 - python Racing_car_game.py to start the game
